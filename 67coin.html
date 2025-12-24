@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>67 Coin | Revolutionary Meme Coin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-gold: #FFD700;
+            --neon-orange: #FF6B00;
+            --deep-black: #0a0a0a;
+            --cyber-purple: #8B00FF;
+            --electric-blue: #00D4FF;
+            --hot-pink: #FF0080;
+            --success-green: #00FF88;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Changed from Vazirmatn for English */
+            background: var(--deep-black);
+            color: white;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(139, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 107, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 70%),
+                var(--deep-black);
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,215,0,0.8), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.5), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,107,0,0.6), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(0,212,255,0.7), transparent),
+                radial-gradient(1px 1px at 160px 120px, rgba(255,255,255,0.4), transparent);
+            background-size: 200px 200px;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Grid Lines */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.7);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            animation: logoGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8)); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-gold), var(--neon-orange));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            position: relative;
+        }
+
+        .coin-container {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .main-coin {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: 
+                radial-gradient(circle at 30% 30%, #FFE55C, var(--neon-gold) 40%, #CC9900 80%, #996600);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 120px;
+            font-weight: 900;
+            color: #1a1a1a;
+            box-shadow: 
+                0 0 60px rgba(255, 215, 0, 0.5),
+                0 0 120px rgba(255, 215, 0, 0.3),
+                inset 0 0 60px rgba(255, 255, 255, 0.3),
+                inset -10px -10px 30px rgba(0, 0, 0, 0.3);
+            animation: coinFloat 3s ease-in-out infinite, coinRotate 10s linear infinite;
+            border: 8px solid #CC9900;
+            position: relative;
+        }
+
+        .main-coin::before {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 3px dashed rgba(0, 0, 0, 0.2);
+        }
+
+        .main-coin::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.6), transparent);
+            border-radius: 50%;
+        }
+
+        @keyframes coinFloat {
+            0%, 100% { transform: translateY(0) rotateY(0deg); }
+            50% { transform: translateY(-20px) rotateY(10deg); }
+        }
+
+        @keyframes coinRotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .glow-ring {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-gold);
+            animation: ringPulse 2s ease-in-out infinite;
+            opacity: 0.5;
+        }
+
+        .glow-ring:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            animation-delay: 0.5s;
+            opacity: 0.3;
+        }
+
+        .glow-ring:nth-child(3) {
+            width: 450px;
+            height: 450px;
+            animation-delay: 1s;
+            opacity: 0.15;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange), var(--hot-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+            50% { filter: drop-shadow(0 0 40px rgba(255, 107, 0, 0.8)); }
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero .tagline span {
+            color: var(--neon-gold);
+            font-weight: 700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange));
+            color: #1a1a1a;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--neon-gold);
+            border: 2px solid var(--neon-gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .btn:hover::before {
+            animation: btnShine 0.5s ease;
+        }
+
+        @keyframes btnShine {
+            0% { left: -50%; opacity: 1; }
+            100% { left: 150%; opacity: 0; }
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 50px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            background: linear-gradient(180deg, transparent, rgba(255, 215, 0, 0.02), transparent);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-gold), var(--neon-orange));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-gold);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neon-gold);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, var(--neon-gold), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 50px 30px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border-radius: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 215, 0, 0.1), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--neon-gold);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+        }
+
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--neon-gold);
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* Tokenomics */
+        .tokenomics {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, transparent, rgba(139, 0, 255, 0.05), transparent);
+        }
+
+        .tokenomics-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .token-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .donut-chart {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--neon-gold) 0deg 144deg,
+                var(--neon-orange) 144deg 216deg,
+                var(--cyber-purple) 216deg 270deg,
+                var(--electric-blue) 270deg 324deg,
+                var(--success-green) 324deg 360deg
+            );
+            position: relative;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+            animation: chartRotate 20s linear infinite;
+        }
+
+        @keyframes chartRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .donut-chart::before {
+            content: '67';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: var(--deep-black);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--neon-gold);
+            animation: chartRotate 20s linear infinite reverse;
+        }
+
+        .token-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .token-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .token-item:hover {
+            background: rgba(255, 215, 0, 0.05);
+            border-color: rgba(255, 215, 0, 0.2);
+            transform: translateX(10px); /* Changed direction for LTR */
+        }
+
+        .token-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .token-item span {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .token-item strong {
+            color: var(--neon-gold);
+            font-family: 'Orbitron', sans-serif;
+            margin-right: 5px; /* Reduced margin for LTR */
+        }
+
+        /* How to Buy */
+        .how-to-buy {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            padding: 40px 30px;
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.02));
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .step-card h3 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: var(--neon-gold);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .step-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        /* Contract Address */
+        .contract {
+            padding: 60px 50px;
+            text-align: center;
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.05), rgba(255, 107, 0, 0.05));
+            margin: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .contract h3 {
+            color: var(--neon-gold);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contract-address {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contract-address:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--neon-gold);
+        }
+
+        .contract-address code {
+            font-family: 'Orbitron', monospace;
+            color: var(--electric-blue);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            padding: 10px 20px;
+            background: var(--neon-gold);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .copy-btn:hover {
+            background: var(--neon-orange);
+            transform: scale(1.05);
+        }
+
+        /* Roadmap */
+        .roadmap {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%; /* Adjusted for LTR */
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--neon-gold), var(--cyber-purple), var(--electric-blue));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+            justify-content: flex-end; /* Standardize alignment */
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse; /* Flip content for alternating effect */
+        }
+
+        /* Special handling for LTR alternating layout */
+        .timeline-item:nth-child(even) {
+            flex-direction: row;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            text-align: left; /* Reset to left for English */
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 215, 0, 0.05);
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%; /* Center dot in LTR */
+            transform: translateX(-50%);
+            width: 25px;
+            height: 25px;
+            background: var(--neon-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            z-index: 1;
+        }
+
+        .timeline-phase {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-gold);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            text-align: left; /* Changed from right to left */
+        }
+
+        .timeline-content ul li {
+            color: rgba(255, 255, 255, 0.7);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-content ul li::before {
+            content: '✦';
+            color: var(--neon-gold);
+            margin-right: 10px; /* Changed from margin-left for LTR */
+        }
+
+        /* Community */
+        .community {
+            padding: 100px 50px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent, rgba(255, 215, 0, 0.02));
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            font-size: 2.5rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange));
+            border-color: transparent;
+            transform: translateY(-10px) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        footer .logo {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* Floating Elements */
+        .floating-coins {
+            position: fixed;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .mini-coin {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--neon-gold), #CC9900);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: #1a1a1a;
+            font-size: 16px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            animation: floatRandom 15s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .mini-coin:nth-child(1) { top: 20%; left: 5%; animation-delay: 0s; }
+        .mini-coin:nth-child(2) { top: 60%; left: 90%; animation-delay: 2s; }
+        .mini-coin:nth-child(3) { top: 80%; left: 10%; animation-delay: 4s; }
+        .mini-coin:nth-child(4) { top: 30%; left: 85%; animation-delay: 6s; }
+        .mini-coin:nth-child(5) { top: 70%; left: 50%; animation-delay: 8s; }
+
+        @keyframes floatRandom {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(90deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+            75% { transform: translateY(-40px) rotate(270deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-coin {
+                width: 200px;
+                height: 200px;
+                font-size: 80px;
+            }
+            
+            .glow-ring { width: 250px; height: 250px; }
+            .glow-ring:nth-child(2) { width: 300px; height: 300px; }
+            .glow-ring:nth-child(3) { width: 350px; height: 350px; }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                padding: 40px 20px;
+            }
+            
+            /* Timeline Responsive */
+            .timeline::before {
+                left: 20px; /* Align line left */
+            }
+            
+            .timeline-item, .timeline-item:nth-child(odd) {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding-left: 45px; /* Space for dot */
+            }
+            
+            .timeline-content {
+                width: 100%;
+                text-align: left;
+            }
+            
+            .timeline-dot {
+                left: 20px; /* Align dot left */
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="stars"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="floating-coins">
+        <div class="mini-coin">67</div>
+        <div class="mini-coin">67</div>
+        <div class="mini-coin">67</div>
+        <div class="mini-coin">67</div>
+        <div class="mini-coin">67</div>
+    </div>
+
+    <nav>
+        <div class="logo">67 COIN</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#tokenomics">Tokenomics</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="coin-container">
+            <div class="glow-ring"></div>
+            <div class="glow-ring"></div>
+            <div class="glow-ring"></div>
+            <div class="main-coin">67</div>
+        </div>
+        
+        <h1>67 COIN</h1>
+        <p class="tagline">The <span>Revolutionary</span> Meme Coin on BNB Chain</p>
+        
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">🚀 Buy 67 Coin</a>
+            <a href="#" class="btn btn-secondary">📄 Whitepaper</a>
+        </div>
+    </section>
+
+    <section class="stats reveal">
+        <div class="stat-card">
+            <div class="stat-number">67B</div>
+            <div class="stat-label">Total Supply</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">0%</div>
+            <div class="stat-label">Buy Tax</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">0%</div>
+            <div class="stat-label">Sell Tax</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Liquidity Locked</div>
+        </div>
+    </section>
+
+    <section class="features reveal" id="features">
+        <h2 class="section-title">Why 67 Coin?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Secure</h3>
+                <p>Fully audited smart contract with liquidity locked for your peace of mind.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Lightning Fast</h3>
+                <p>Ultra-fast transactions on BNB Chain with minimal fees.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌍</span>
+                <h3>Global Community</h3>
+                <p>Join the 67 family and benefit from an active, worldwide community.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💎</span>
+                <h3>Diamond Holders</h3>
+                <p>Special rewards for long-term and loyal project holders.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔥</span>
+                <h3>Token Burn</h3>
+                <p>Deflationary mechanism to increase value over time.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎁</span>
+                <h3>Airdrops</h3>
+                <p>Regular airdrops for active community members.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tokenomics reveal" id="tokenomics">
+        <h2 class="section-title">Tokenomics</h2>
+        <div class="tokenomics-container">
+            <div class="token-chart">
+                <div class="donut-chart"></div>
+                <div class="token-info">
+                    <div class="token-item">
+                        <div class="token-color" style="background: var(--neon-gold);"></div>
+                        <span><strong>40%</strong> Liquidity</span>
+                    </div>
+                    <div class="token-item">
+                        <div class="token-color" style="background: var(--neon-orange);"></div>
+                        <span><strong>20%</strong> Marketing</span>
+                    </div>
+                    <div class="token-item">
+                        <div class="token-color" style="background: var(--cyber-purple);"></div>
+                        <span><strong>15%</strong> Development</span>
+                    </div>
+                    <div class="token-item">
+                        <div class="token-color" style="background: var(--electric-blue);"></div>
+                        <span><strong>15%</strong> Team (Locked)</span>
+                    </div>
+                    <div class="token-item">
+                        <div class="token-color" style="background: var(--success-green);"></div>
+                        <span><strong>10%</strong> Airdrop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-to-buy reveal">
+        <h2 class="section-title">How to Buy</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Create Wallet</h3>
+                <p>Download and install Trust Wallet or MetaMask.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Get BNB</h3>
+                <p>Buy BNB from an exchange and transfer it to your wallet.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Go to PancakeSwap</h3>
+                <p>Connect your wallet to PancakeSwap.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Swap!</h3>
+                <p>Swap BNB for 67 Coin and HODL!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contract reveal">
+        <h3>Smart Contract Address</h3>
+        <div class="contract-address" onclick="copyAddress()">
+            <code id="contractCode">0x67...XXXXXXXXXXXXXXXXXXXXXXXXXXXX67</code>
+            <button class="copy-btn">Copy</button>
+        </div>
+        <p style="margin-top: 20px; color: rgba(255,255,255,0.5); font-size: 0.9rem;">
+            ⚠️ Always verify the address from official sources.
+        </p>
+    </section>
+
+    <section class="roadmap reveal" id="roadmap">
+        <h2 class="section-title">Roadmap</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-phase">Phase 1 - Launch</div>
+                    <ul>
+                        <li>Website Launch</li>
+                        <li>Social Media Setup</li>
+                        <li>Token Launch</li>
+                        <li>Contract Audit</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-phase">Phase 2 - Growth</div>
+                    <ul>
+                        <li>CoinGecko Listing</li>
+                        <li>CoinMarketCap Listing</li>
+                        <li>1,000 Holders</li>
+                        <li>Marketing Campaign</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-phase">Phase 3 - Expansion</div>
+                    <ul>
+                        <li>NFT Collection</li>
+                        <li>Staking Platform</li>
+                        <li>CEX Listings</li>
+                        <li>10,000 Holders</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-phase">Phase 4 - Global</div>
+                    <ul>
+                        <li>Major Partnerships</li>
+                        <li>Mobile App</li>
+                        <li>Metaverse Integration</li>
+                        <li>To The Moon! 🚀</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community reveal" id="community">
+        <h2 class="section-title">Join the 67 Community</h2>
+        <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Become part of our big family today!</p>
+        <div class="social-links">
+            <a href="#" class="social-link" title="Telegram">📱</a>
+            <a href="#" class="social-link" title="Twitter">🐦</a>
+            <a href="#" class="social-link" title="Discord">💬</a>
+            <a href="#" class="social-link" title="Instagram">📸</a>
+            <a href="#" class="social-link" title="Reddit">🔴</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo">67 COIN</div>
+        <p>© 2025 67 Coin - All Rights Reserved</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">
+            ⚠️ Investing in cryptocurrency involves risk. Always do your own research (DYOR).
+        </p>
+    </footer>
+
+    <script>
+        // Copy Contract Address
+        function copyAddress() {
+            const code = document.getElementById('contractCode');
+            navigator.clipboard.writeText(code.textContent);
+            const btn = document.querySelector('.copy-btn');
+            btn.textContent = 'Copied! ✓';
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+            }, 2000);
+        }
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Feature Cards Mouse Effect
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', x + '%');
+                card.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter Animation for Stats
+        function animateCounter(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 30);
+        }
+
+        // Intersection Observer for Stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('B')) {
+                            stat.textContent = '67B';
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const stats = document.querySelector('.stats');
+        if (stats) {
+            statsObserver.observe(stats);
+        }
+    </script>
+</body>
+</html>
